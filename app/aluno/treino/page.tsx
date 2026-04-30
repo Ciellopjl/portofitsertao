@@ -52,7 +52,7 @@ export default async function AlunoTreinoPage() {
             </div>
           </div>
         ) : (
-          member.workouts.map((workout) => (
+          member.workouts.map((workout: any) => (
             <div key={workout.id} className="bg-[#0f0f0f] border border-white/5 rounded-3xl overflow-hidden shadow-xl">
               <div className="p-6 border-b border-white/5 bg-gradient-to-r from-gold-500/5 to-transparent">
                 <div className="flex items-center justify-between mb-2">
@@ -68,7 +68,7 @@ export default async function AlunoTreinoPage() {
               </div>
 
               <div className="divide-y divide-white/5">
-                {workout.exercises.map((ex, idx) => (
+                {workout.exercises.map((ex: any, idx: number) => (
                   <div key={ex.id} className="p-6 flex items-center gap-5 hover:bg-white/[0.02] transition-colors">
                     <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 font-black text-gray-500">
                       {idx + 1}
