@@ -29,7 +29,7 @@ export default async function FinanceiroPage() {
   });
 
   const pendingCount = payments.filter((p: any) => p.status === 'PENDING').length;
-  const totalRevenue = payments.filter((p: any) => p.status === 'PAID').reduce((acc, curr: any) => acc + curr.amount, 0);
+  const totalRevenue = payments.filter((p: any) => p.status === 'PAID').reduce((acc: number, curr: any) => acc + curr.amount, 0);
 
   return (
     <div className="p-8">

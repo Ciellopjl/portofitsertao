@@ -19,7 +19,7 @@ export async function GET() {
     orderBy: { studentCode: "asc" },
   });
 
-  const data = members.map((m) => ({
+  const data = (members as any[]).map((m: any) => ({
     codigo: m.studentCode,
     nome: m.user.name || "—",
     email: m.user.email || "—",
@@ -28,7 +28,7 @@ export async function GET() {
     vencimento: m.planExpiresAt
       ? new Date(m.planExpiresAt).toLocaleDateString("pt-BR")
       : "—",
-    totalPago: m.payments.reduce((acc, p) => acc + p.amount, 0),
+    totalPago: m.payments.reduce((acc: number, p: any) => acc + p.amount, 0),
     ultimoPagamento: m.payments[0]
       ? new Date(m.payments[0].createdAt).toLocaleDateString("pt-BR")
       : "—",
