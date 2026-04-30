@@ -109,7 +109,7 @@ async function RevenueSection({ isSuperAdmin }: { isSuperAdmin: boolean }) {
       chartDataMap[key] = 0;
     }
 
-    payments.forEach(p => {
+    payments.forEach((p: any) => {
       if (p.paidAt) {
         const month = monthsNames[p.paidAt.getMonth()];
         if (chartDataMap[month] !== undefined) {
@@ -159,7 +159,7 @@ async function ActivityFeed() {
     ]);
 
     const activities = [
-      ...recentMembers.map(m => ({
+      ...recentMembers.map((m: any) => ({
         id: `m-${m.id}`,
         userName: m.user.name || "Aluno",
         date: m.createdAt,
@@ -168,7 +168,7 @@ async function ActivityFeed() {
         color: "text-blue-400",
         bg: "bg-blue-500/10"
       })),
-      ...recentPayments.map(p => ({
+      ...recentPayments.map((p: any) => ({
         id: `p-${p.id}`,
         userName: p.member.user.name || "Aluno",
         date: p.paidAt || p.createdAt,
@@ -217,7 +217,7 @@ async function PendingPaymentsList() {
         {pendingPayments.length === 0 ? (
           <div className="px-6 py-10 text-center text-gray-500 text-sm">Tudo em dia!</div>
         ) : (
-          pendingPayments.map((p) => (
+          pendingPayments.map((p: any) => (
             <div key={p.id} className="flex items-center gap-3 px-6 py-4">
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-bold text-white truncate">{p.member.user.name}</p>
