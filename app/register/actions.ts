@@ -38,8 +38,8 @@ export async function registerUser(formData: FormData) {
     });
     
     const codes = allMembers
-      .map(m => parseInt(m.studentCode))
-      .filter(n => !isNaN(n));
+      .map((m: any) => parseInt(m.studentCode))
+      .filter((n: number) => !isNaN(n));
       
     const nextNum = codes.length > 0 ? Math.max(...codes) + 1 : 1;
     const nextCode = String(nextNum).padStart(4, "0");

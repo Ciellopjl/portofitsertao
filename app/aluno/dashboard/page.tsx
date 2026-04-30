@@ -37,7 +37,7 @@ export default async function StudentDashboardPage() {
     
     // Pegamos todos os códigos existentes para achar o maior real
     const allMembers = await prisma.member.findMany({ select: { studentCode: true } });
-    const codes = allMembers.map(m => parseInt(m.studentCode)).filter(n => !isNaN(n));
+    const codes = allMembers.map((m: any) => parseInt(m.studentCode)).filter((n: number) => !isNaN(n));
     const nextNum = codes.length > 0 ? Math.max(...codes) + 1 : 1;
     const nextCode = String(nextNum).padStart(4, "0");
 
@@ -76,7 +76,7 @@ export default async function StudentDashboardPage() {
           name: user.member.plan.name,
           price: user.member.plan.price,
         } : null,
-        payments: user.member.payments.map((p) => ({
+        payments: user.member.payments.map((p: any) => ({
           id: p.id,
           amount: p.amount,
           status: p.status,
@@ -84,7 +84,7 @@ export default async function StudentDashboardPage() {
           createdAt: p.createdAt.toISOString(),
         })),
       }}
-      plans={activePlans.map(p => ({
+      plans={activePlans.map((p: any) => ({
         id: p.id,
         name: p.name,
         description: p.description || "",
