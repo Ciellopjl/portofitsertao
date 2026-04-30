@@ -155,7 +155,7 @@ export default function NovoAlunoModal({ plans }: NovoAlunoModalProps) {
                     className="w-full bg-dark-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors appearance-none"
                   >
                     <option value="">Sem Plano</option>
-                    {plans.map((p) => (
+                    {plans.map((p: any) => (
                       <option key={p.id} value={p.id}>
                         {p.name} — R$ {p.price.toFixed(2).replace(".", ",")}
                       </option>
@@ -170,7 +170,7 @@ export default function NovoAlunoModal({ plans }: NovoAlunoModalProps) {
                       { value: "ACTIVE", label: "Ativo", color: "green" },
                       { value: "PENDING", label: "Pendente", color: "yellow" },
                       { value: "INACTIVE", label: "Inativo", color: "red" },
-                    ].map((opt) => (
+                    ].map((opt: any) => (
                       <button
                         key={opt.value}
                         type="button"

@@ -131,13 +131,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <nav className="flex-1 px-4 mt-6 space-y-1">
           <p className="px-3 mb-3 text-[10px] font-bold text-gray-600 uppercase tracking-widest">Menu Principal</p>
           {links
-            .filter(link => {
+            .filter((link: any) => {
               if (link.href === "/admin/liberacao") {
                 return session?.user?.email === "ciellodev@gmail.com";
               }
               return true;
             })
-            .map((link) => {
+            .map((link: any) => {
             const isActive = pathname === link.href || pathname?.startsWith(link.href + "/");
             return (
               <Link

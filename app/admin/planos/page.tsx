@@ -37,7 +37,7 @@ export default async function PlanosPage() {
             </div>
           </div>
         ) : (
-          plans.map((plan) => (
+          plans.map((plan: any) => (
             <div key={plan.id} className="bg-dark-800 rounded-3xl p-6 border border-white/5 relative group shadow-xl hover:shadow-[0_0_30px_rgba(255,215,0,0.05)] hover:border-gold-500/10 transition-all flex flex-col">
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-2xl font-bold text-white">{plan.name}</h3>
@@ -55,7 +55,7 @@ export default async function PlanosPage() {
 
               {plan.features.length > 0 && (
                 <div className="space-y-3 mb-8">
-                  {plan.features.map((feat, i) => (
+                  {plan.features.map((feat: any, i: number) => (
                     <div key={i} className="flex items-start gap-2 text-sm text-gray-300">
                       <CheckCircle className="text-gold-500 shrink-0 mt-0.5" size={16} />
                       <span>{feat}</span>

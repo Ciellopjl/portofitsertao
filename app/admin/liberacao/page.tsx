@@ -63,7 +63,7 @@ export default function LiberacaoPage() {
     if (res.success) loadEmails();
   }
 
-  const filteredEmails = emails.filter(e => 
+  const filteredEmails = emails.filter((e: any) => 
     e.email.toLowerCase().includes(searchTerm.toLowerCase()) || 
     (e.name && e.name.toLowerCase().includes(searchTerm.toLowerCase()))
   );
@@ -167,7 +167,7 @@ export default function LiberacaoPage() {
                     <p className="text-gray-500 font-medium text-sm">Carregando whitelist...</p>
                   </div>
                 ) : filteredEmails.length > 0 ? (
-                  filteredEmails.map((item, idx) => {
+                  filteredEmails.map((item: any, idx: number) => {
                     const isOnline = item.lastSeen && (new Date().getTime() - new Date(item.lastSeen).getTime() < 5 * 60 * 1000);
                     
                     return (

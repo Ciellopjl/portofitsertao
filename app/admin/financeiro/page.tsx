@@ -28,8 +28,8 @@ export default async function FinanceiroPage() {
     orderBy: { createdAt: 'desc' }
   });
 
-  const pendingCount = payments.filter(p => p.status === 'PENDING').length;
-  const totalRevenue = payments.filter(p => p.status === 'PAID').reduce((acc, curr) => acc + curr.amount, 0);
+  const pendingCount = payments.filter((p: any) => p.status === 'PENDING').length;
+  const totalRevenue = payments.filter((p: any) => p.status === 'PAID').reduce((acc, curr: any) => acc + curr.amount, 0);
 
   return (
     <div className="p-8">
@@ -96,7 +96,7 @@ export default async function FinanceiroPage() {
                   </td>
                 </tr>
               ) : (
-                payments.map((payment) => (
+                payments.map((payment: any) => (
                   <tr key={payment.id} className="hover:bg-white/[0.02] transition-colors">
                     <td className="px-6 py-4 text-gray-300 whitespace-nowrap">
                       {new Date(payment.createdAt).toLocaleString('pt-BR')}
