@@ -166,7 +166,7 @@ export default function EditPlanModal({ plan }: { plan: Plan }) {
                       onChange={(e) => setForm({ ...form, duration: e.target.value })}
                       className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors text-sm"
                     >
-                      {[1, 2, 3, 6, 12].map((m) => (
+                      {[1, 2, 3, 6, 12].map((m: number) => (
                         <option key={m} value={m}>{m} {m === 1 ? "mês" : "meses"}</option>
                       ))}
                     </select>

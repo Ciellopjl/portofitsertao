@@ -105,7 +105,7 @@ export default function NovoPlanoModal() {
                   <div>
                     <label className="block text-sm font-bold text-gray-300 mb-2">Duração (meses)</label>
                     <select value={form.duration} onChange={(e) => setForm({ ...form, duration: e.target.value })} className="w-full bg-dark-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors">
-                      {[1, 2, 3, 6, 12].map((m) => <option key={m} value={m}>{m} {m === 1 ? "mês" : "meses"}</option>)}
+                      {[1, 2, 3, 6, 12].map((m: number) => <option key={m} value={m}>{m} {m === 1 ? "mês" : "meses"}</option>)}
                     </select>
                   </div>
                   <div className="col-span-2">

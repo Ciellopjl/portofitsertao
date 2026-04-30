@@ -24,7 +24,7 @@ export async function GET() {
     orderBy: { studentCode: "asc" },
   });
 
-  const data = members.map((m) => ({
+  const data = (members as any[]).map((m: any) => ({
     codigo: m.studentCode,
     nome: m.user.name || "—",
     email: m.user.email || "—",
@@ -33,16 +33,16 @@ export async function GET() {
     vencimento: m.planExpiresAt
       ? new Date(m.planExpiresAt).toLocaleDateString("pt-BR")
       : "—",
-    totalPago: m.payments.reduce((acc, p) => acc + p.amount, 0),
+    totalPago: m.payments.reduce((acc: number, p: any) => acc + p.amount, 0),
     cadastradoEm: new Date(m.createdAt).toLocaleDateString("pt-BR"),
   }));
 
   const stats = {
     total: data.length,
-    ativos: data.filter((d) => d.status === "ACTIVE").length,
-    pendentes: data.filter((d) => d.status === "PENDING").length,
-    inativos: data.filter((d) => d.status === "INACTIVE").length,
-    receita: data.reduce((acc, d) => acc + d.totalPago, 0),
+    ativos: data.filter((d: any) => d.status === "ACTIVE").length,
+    pendentes: data.filter((d: any) => d.status === "PENDING").length,
+    inativos: data.filter((d: any) => d.status === "INACTIVE").length,
+    receita: data.reduce((acc: number, d: any) => acc + d.totalPago, 0),
     geradoEm: new Date().toLocaleDateString("pt-BR", {
       day: "2-digit", month: "long", year: "numeric",
       hour: "2-digit", minute: "2-digit",
