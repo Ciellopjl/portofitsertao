@@ -80,7 +80,7 @@ export default async function AlunosPage() {
                   </td>
                 </tr>
               ) : (
-                members.map((member) => (
+                members.map((member: any) => (
                   <tr key={member.id} className="hover:bg-white/[0.02] transition-colors">
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
