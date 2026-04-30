@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold-500: #FFD700;
+  --color-gold-600: #FFC300;
+  --color-gold-700: #E6B800;
+  --color-gold-800: #B38F00;
+  --color-gold-900: #806600;
+  --color-dark-900: #000000;
+  --color-dark-800: #0f0f0f;
+  --color-dark-700: #1a1a1a;
+  
+  --font-inter: 'Inter', sans-serif;
+}
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+.glass {
+  background: rgba(26, 26, 26, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.gold-glow {
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.15), inset 0 0 10px rgba(255, 215, 0, 0.05);
+}
+
+.gold-glow:hover {
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.25), inset 0 0 15px rgba(255, 215, 0, 0.1);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #FFD700, #FFC300, #E6B800);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .7;
+  }
+}
